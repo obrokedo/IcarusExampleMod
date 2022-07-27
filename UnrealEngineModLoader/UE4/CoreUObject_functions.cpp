@@ -14,6 +14,12 @@ namespace UE4
 	//UObject Functions
 	//---------------------------------------------------------------------------
 
+	enum ETeleportType
+	{
+		TeleportPhysics = 1,
+		ResetPhysics = 2,
+	};
+
 	std::string UObject::GetName() const
 	{
 		auto Name = *reinterpret_cast<FName*>((byte*)this + GameProfile::SelectedGameProfile.defs.UObject.Name);
@@ -108,6 +114,7 @@ namespace UE4
 					continue;
 				}
 
+				// printf("Contains object %s\n", object->GetName());
 				if (object->GetName() == Function)
 				{
 					if (object->GetOuter() == this->GetClass())
@@ -359,6 +366,30 @@ namespace UE4
 		{
 			FVector ReturnValue;
 		}params;
+		UObject::ProcessEvent(fn, &params);
+		return params.ReturnValue;
+	}
+
+
+	bool AActor::SetActorLocation(const FVector& NewLocation) {
+		static auto fn = UObject::FindObject<UFunction>("Function Engine.Actor.K2_SetActorLocation");
+		if (fn != 0) {
+			std::cout << "Found set actor location??" << std::endl;
+		}
+		struct
+		{
+			class FVector NewLocation;
+			bool bSweep;
+			class OutSweepHitResult* OutSweepHitResult;
+			ETeleportType Teleport;
+			bool ReturnValue;
+		}params;
+		OutSweepHitResult hr;
+
+		params.NewLocation = NewLocation;
+		params.bSweep = false;
+		params.OutSweepHitResult = &hr;
+		params.Teleport = ResetPhysics;
 		UObject::ProcessEvent(fn, &params);
 		return params.ReturnValue;
 	}

@@ -1,0 +1,37 @@
+// BlueprintGeneratedClass BP_NetworkProxyComponentSurvival.BP_NetworkProxyComponentSurvival_C
+// Size: 0xf8 (Inherited: 0xe9)
+struct UBP_NetworkProxyComponentSurvival_C : UBP_NetworkProxyComponent_C {
+	char pad_E9[0x7]; // 0xe9(0x07)
+	struct FPointerToUberGraphFrame UberGraphFrame; // 0xf0(0x08)
+
+	void SERVER_WaterInteract(struct UBP_Interactable_Drink_WaterSource_C* WaterInteractable); // Function BP_NetworkProxyComponentSurvival.BP_NetworkProxyComponentSurvival_C.SERVER_WaterInteract // (Net|NetReliableNetServer|BlueprintCallable|BlueprintEvent) // @ game+0x1be0000
+	void CheatCycleBiome(); // Function BP_NetworkProxyComponentSurvival.BP_NetworkProxyComponentSurvival_C.CheatCycleBiome // (BlueprintCallable|BlueprintEvent) // @ game+0x1be0000
+	void CheatSpawnAI(struct FAISetupRowHandle AISetupRow, int32_t Lvl, struct FEpicCreaturesRowHandle Epic); // Function BP_NetworkProxyComponentSurvival.BP_NetworkProxyComponentSurvival_C.CheatSpawnAI // (Net|NetReliableNetServer|BlueprintCallable|BlueprintEvent) // @ game+0x1be0000
+	void CheatSpawnAIAtCursor(struct FAISetupRowHandle AISetupRow); // Function BP_NetworkProxyComponentSurvival.BP_NetworkProxyComponentSurvival_C.CheatSpawnAIAtCursor // (BlueprintCallable|BlueprintEvent) // @ game+0x1be0000
+	void CheatSetAIRelationship(struct FName RowName); // Function BP_NetworkProxyComponentSurvival.BP_NetworkProxyComponentSurvival_C.CheatSetAIRelationship // (Net|NetReliableNetServer|BlueprintCallable|BlueprintEvent) // @ game+0x1be0000
+	void GotoPlayer(struct APlayerState* Player); // Function BP_NetworkProxyComponentSurvival.BP_NetworkProxyComponentSurvival_C.GotoPlayer // (Net|NetReliableNetServer|BlueprintCallable|BlueprintEvent) // @ game+0x1be0000
+	void GotoActor(struct AActor* Actor, struct FVector Offset); // Function BP_NetworkProxyComponentSurvival.BP_NetworkProxyComponentSurvival_C.GotoActor // (Net|NetReliableNetServer|BlueprintCallable|BlueprintEvent) // @ game+0x1be0000
+	void BringPlayer(struct APlayerState* Player); // Function BP_NetworkProxyComponentSurvival.BP_NetworkProxyComponentSurvival_C.BringPlayer // (Net|NetReliableNetServer|BlueprintCallable|BlueprintEvent) // @ game+0x1be0000
+	void Cheat_ModifySessionTime(int32_t Seconds To Add); // Function BP_NetworkProxyComponentSurvival.BP_NetworkProxyComponentSurvival_C.Cheat_ModifySessionTime // (Net|NetReliableNetServer|BlueprintCallable|BlueprintEvent) // @ game+0x1be0000
+	void Cheat_ReviveFriend(struct APlayerState* Player State); // Function BP_NetworkProxyComponentSurvival.BP_NetworkProxyComponentSurvival_C.Cheat_ReviveFriend // (Net|NetReliableNetServer|BlueprintCallable|BlueprintEvent) // @ game+0x1be0000
+	void Debug_SnowRoofs(); // Function BP_NetworkProxyComponentSurvival.BP_NetworkProxyComponentSurvival_C.Debug_SnowRoofs // (Net|NetReliableNetServer|BlueprintCallable|BlueprintEvent) // @ game+0x1be0000
+	void Cheat_TriggerWeatherEvent(struct FBiomesRowHandle Biome, struct FWeatherEventsRowHandle Event); // Function BP_NetworkProxyComponentSurvival.BP_NetworkProxyComponentSurvival_C.Cheat_TriggerWeatherEvent // (Net|NetReliableNetServer|BlueprintCallable|BlueprintEvent) // @ game+0x1be0000
+	void Cheat_SetGlobalEnvTemp(int32_t NewTemp); // Function BP_NetworkProxyComponentSurvival.BP_NetworkProxyComponentSurvival_C.Cheat_SetGlobalEnvTemp // (Net|NetReliableNetServer|BlueprintCallable|BlueprintEvent) // @ game+0x1be0000
+	void Cheat_ClearWeather(); // Function BP_NetworkProxyComponentSurvival.BP_NetworkProxyComponentSurvival_C.Cheat_ClearWeather // (Net|NetReliableNetServer|BlueprintCallable|BlueprintEvent) // @ game+0x1be0000
+	void Server_ToggleAISpawning(); // Function BP_NetworkProxyComponentSurvival.BP_NetworkProxyComponentSurvival_C.Server_ToggleAISpawning // (Net|NetReliableNetServer|BlueprintCallable|BlueprintEvent) // @ game+0x1be0000
+	void Cheat_SetPlayerLocation(struct FVector NewWorldLocation); // Function BP_NetworkProxyComponentSurvival.BP_NetworkProxyComponentSurvival_C.Cheat_SetPlayerLocation // (Net|NetReliableNetServer|BlueprintCallable|BlueprintEvent) // @ game+0x1be0000
+	void Cheat_AddPlayerRelativeLocation(struct FVector DeltaLocation); // Function BP_NetworkProxyComponentSurvival.BP_NetworkProxyComponentSurvival_C.Cheat_AddPlayerRelativeLocation // (Net|NetReliableNetServer|BlueprintCallable|BlueprintEvent) // @ game+0x1be0000
+	void Cheat_SetPlayerRotation(struct FRotator NewWorldRotation); // Function BP_NetworkProxyComponentSurvival.BP_NetworkProxyComponentSurvival_C.Cheat_SetPlayerRotation // (Net|NetReliableNetServer|BlueprintCallable|BlueprintEvent) // @ game+0x1be0000
+	void Cheat_AddPlayerRelativeRotation(struct FRotator NewWorldRotation); // Function BP_NetworkProxyComponentSurvival.BP_NetworkProxyComponentSurvival_C.Cheat_AddPlayerRelativeRotation // (Net|NetReliableNetServer|BlueprintCallable|BlueprintEvent) // @ game+0x1be0000
+	void Cheat_SpectatorCamrea(); // Function BP_NetworkProxyComponentSurvival.BP_NetworkProxyComponentSurvival_C.Cheat_SpectatorCamrea // (Net|NetReliableNetServer|BlueprintCallable|BlueprintEvent) // @ game+0x1be0000
+	void Cheat_SetDurabilityOnFocusedItem(int32_t Durability); // Function BP_NetworkProxyComponentSurvival.BP_NetworkProxyComponentSurvival_C.Cheat_SetDurabilityOnFocusedItem // (Net|NetReliableNetServer|BlueprintCallable|BlueprintEvent) // @ game+0x1be0000
+	void Cheat_SetFillableOnFocusItem(enum class EIcarusResourceType Resource, int32_t Units); // Function BP_NetworkProxyComponentSurvival.BP_NetworkProxyComponentSurvival_C.Cheat_SetFillableOnFocusItem // (Net|NetServer|BlueprintCallable|BlueprintEvent) // @ game+0x1be0000
+	void Cheat_DisableFires(bool State); // Function BP_NetworkProxyComponentSurvival.BP_NetworkProxyComponentSurvival_C.Cheat_DisableFires // (Net|NetReliableNetServer|BlueprintCallable|BlueprintEvent) // @ game+0x1be0000
+	void Proxy_CheckGraveStoneLinkageServerSide(struct ABP_Gravestone_C* GravestoneToCheck, struct UBP_Interactable_Revive_Grave_C* Interactable); // Function BP_NetworkProxyComponentSurvival.BP_NetworkProxyComponentSurvival_C.Proxy_CheckGraveStoneLinkageServerSide // (Net|NetServer|BlueprintCallable|BlueprintEvent) // @ game+0x1be0000
+	void SetCanInteractOverride(bool GraveFound, struct UBP_Interactable_Revive_Grave_C* Interactable); // Function BP_NetworkProxyComponentSurvival.BP_NetworkProxyComponentSurvival_C.SetCanInteractOverride // (Net|NetClient|BlueprintCallable|BlueprintEvent) // @ game+0x1be0000
+	void Proxy_UpdateSignText(struct FText Text, struct ADeployable* SignDeployable); // Function BP_NetworkProxyComponentSurvival.BP_NetworkProxyComponentSurvival_C.Proxy_UpdateSignText // (Net|NetReliableNetServer|BlueprintCallable|BlueprintEvent) // @ game+0x1be0000
+	void Proxy_ClientDropshipReady(struct ABP_DropShip_C* Dropship); // Function BP_NetworkProxyComponentSurvival.BP_NetworkProxyComponentSurvival_C.Proxy_ClientDropshipReady // (Net|NetReliableNetServer|BlueprintCallable|BlueprintEvent) // @ game+0x1be0000
+	void Cheat_RandomiseMetaSpawns(); // Function BP_NetworkProxyComponentSurvival.BP_NetworkProxyComponentSurvival_C.Cheat_RandomiseMetaSpawns // (BlueprintCallable|BlueprintEvent) // @ game+0x1be0000
+	void ExecuteUbergraph_BP_NetworkProxyComponentSurvival(int32_t EntryPoint); // Function BP_NetworkProxyComponentSurvival.BP_NetworkProxyComponentSurvival_C.ExecuteUbergraph_BP_NetworkProxyComponentSurvival // (Final|UbergraphFunction|HasDefaults) // @ game+0x1be0000
+};
+

@@ -46,14 +46,13 @@ void SetupProfile(std::string Path)
 	INI LoaderInfo(LoaderInfoInI, true);
 	//Output File Initialization
 	LoaderInfo.select("DEBUG");
-	if (LoaderInfo.getAs<int>("DEBUG", "UseConsole", 0) == 1)
-	{
+
 		ShowWindow(GetConsoleWindow(), SW_SHOW);
 		FreeConsole();
 		AllocConsole();
 		freopen("CON", "w", LOG_STREAM);
 		Log::Info("Created by ~Russell.J Release V %s", MODLOADER_VERSION);
-	}
+
 	if (std::filesystem::exists(Profile))
 	{
 		GameProfile::SelectedGameProfile.ProfileName = gamename;
@@ -309,7 +308,12 @@ void SetupProfile(std::string Path)
 			GameProfile::SelectedGameProfile.SpawnActorFTrans = (DWORD64)MEM::GetAddressPTR(SpawnActorFTrans, 0x1, 0x5);
 			Log::Info("UWorld::SpawnActor: 0x%p", (void*)GameProfile::SelectedGameProfile.SpawnActorFTrans);
 
-			auto CallFunctionByNameWithArguments = Pattern::Find("8B ? E8 ? ? ? ? ? 0A E8 FF ? EB 9E ? 8B");
+			// auto CallFunctionByNameWithArguments = Pattern::Find("8B ? E8 ? ? ? ? ? 0A E8 FF ? EB 9E ? 8B");
+			auto CallFunctionByNameWithArguments = Pattern::Find("48 8D 65 40 41 5F 41 5E 41 5D 41");
+
+			// 0x00007FF6441B0FB0
+			// 0x00007FF69B71256A
+
 			if (CallFunctionByNameWithArguments != nullptr)
 			{
 				CallFunctionByNameWithArguments += 0x2;
@@ -425,11 +429,12 @@ void SetupProfile(std::string Path)
 		}
 		Log::Info("Setup %s", gamename.c_str());
 		Hooks::SetupHooks();
+		GameInfo.save("gameinfo.dump");
 	}
 	else
 	{
 		Log::Error("Profile %s Not Detected!", Profile.c_str());
-	}
+	}	
 }
 
 void GameProfile::CreateGameProfile()

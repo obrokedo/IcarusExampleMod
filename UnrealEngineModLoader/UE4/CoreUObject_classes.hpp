@@ -7,6 +7,7 @@
 #include "CoreUObject_structs.hpp"
 #include "GameInfo/GameInfo.h"
 #include "Memory/mem.h"
+#include<stdio.h>
 
 namespace UE4
 {
@@ -44,8 +45,63 @@ namespace UE4
 						continue;
 					}
 
+					printf("NAME %s\n", object->GetFullName());
+
 					if (object->GetFullName() == name)
 					{
+						return static_cast<T*>(object);
+					}
+				}
+				return nullptr;
+			}
+			else
+			{
+				for (int i = 0; i < GObjects->GetAsTUArray().Num(); ++i)
+				{
+					auto object = GObjects->GetAsTUArray().GetByIndex(i).Object;
+
+					if (object == nullptr)
+					{
+						continue;
+					}
+
+					if (object->GetFullName() == name)
+					{
+						return static_cast<T*>(object);
+					}
+				}
+				return nullptr;
+			}
+		}
+
+		template<typename T>
+		static T* FindObjectWithDebug(const std::string& name)
+		{
+			if (IsChunkedArray())
+			{
+				FILE* fp;
+				fp = fopen("playerdump.txt", "w");
+				
+				for (int i = 0; i < GObjects->GetAsChunckArray().Num(); ++i)
+				{
+					auto object = GObjects->GetAsChunckArray().GetByIndex(i).Object;
+
+					if (object == nullptr)
+					{
+						continue;
+					}
+					
+					if (object->GetFullName().rfind("Mesh", 0) == 0 || object->GetFullName().rfind("mesh", 0) == 0)
+						continue;
+
+					if (fp != NULL) {
+						fprintf(fp, "Looking at object with name %s\n", object->GetFullName().c_str());
+					}
+					if (object->GetFullName() == name)
+					{
+						if (fp != NULL) {
+							fprintf(fp, "Found object %s, static casting\n", name.c_str());
+						}
 						return static_cast<T*>(object);
 					}
 				}
@@ -288,6 +344,10 @@ namespace UE4
 		std::string GetName() const;
 	};
 
+	class OutSweepHitResult {
+		char empty[500];
+	};
+
 	class UEProperty
 	{
 	public:
@@ -336,7 +396,9 @@ namespace UE4
 
 		FVector GetActorLocation();
 
-		FVector GetActorScale3D();
+		bool SetActorLocation(const FVector& NewLocation);
+
+		FVector GetActorScale3D();		
 
 		static UClass* StaticClass()
 		{
